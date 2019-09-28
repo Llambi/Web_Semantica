@@ -2,7 +2,8 @@ import os
 import time
 from collections import deque
 from urllib import robotparser
-from urllib.error import HTTPError
+from urllib.error import HTTPError, URLError
+from urllib.parse import urljoin
 from urllib.request import Request, urlopen
 
 from bs4 import BeautifulSoup
@@ -53,31 +54,42 @@ class Crawler:
         """
         for url in self.__urls:
             self.__obtained_urls[url] = deque([])
-            self.__queue = deque(self.__find_urls(url))
+            self.__queue = deque(self.__find_urls(url, url))
             print("Crawling {}".format(url))
-            self.__rec_craw(url, 1)
+            flag = False
+            while not flag and (len(self.__queue) != 0):
+                flag = self.__rec_craw(url, url)
             self.__queue = deque([])
         return self
 
-    def __rec_craw(self, url, level):
+    def __rec_craw(self, base, url):
         """
         Metodo que explora, mediante la estrategia indicada en la creacion del Crawler, las urls
         :param url: url a explorar
         :param level: nivel del arbol de exploracion
         """
-        if level <= self.__max_urls_per_time:
+        if len(self.__obtained_urls[base]) == self.__max_urls_per_time:
+            return True
+        else:
             new_url = self.__queue.popleft()
-            while not self.scanRobots(url, new_url):
+
+            while not self.__scanRobots(url, new_url):
                 if len(self.__queue) is 0:
                     print("\tEmpty queue for {}".format(url))
-                    return
+                    return False
                 new_url = self.__queue.popleft()
-            self.__obtained_urls[url].append(new_url)
-            print("\tCrawling {}".format(new_url))
-            self.__strategy.extend(self.__find_urls(new_url), self.__queue)
-            self.__rec_craw(url, level + 1)
 
-    def __find_urls(self, origin_url):
+            new_urls = self.__find_urls(base, new_url)
+
+            if len(new_urls) is 0:
+                return False
+
+            self.__obtained_urls[base].append(new_url)
+            print("\tCrawling {}".format(new_url))
+            self.__strategy.extend(new_urls, self.__queue)
+            self.__rec_craw(base, new_url)
+
+    def __find_urls(self, base, origin_url):
         """
         Metodo que crea una lista con las url validas que contiene una dada.
         :param origin_url: Url en la que se buscan las nuevas urls
@@ -88,40 +100,43 @@ class Crawler:
             response = urlopen(request).read()
             time.sleep(self.__sleep_time)
             soup = BeautifulSoup(response.decode("utf-8"), 'html.parser')
-            new_urls = list(
-                filter(
-                    lambda href: href is not None and href not in self.__queue,
-                    map(
-                        lambda a: self.__normalize_url(origin_url, a['href']),
-                        soup.findAll('a', href=True)
-                    )
-                ))
-            return new_urls
-        except HTTPError:
+
+            list_a = soup.findAll('a', href=True)
+            filtered_list = list([])
+
+            for a in list_a:
+                href = self.__normalize_url(origin_url, a['href'])
+                if href is not None \
+                        and href != base \
+                        and href != origin_url \
+                        and href not in self.__obtained_urls[base] \
+                        and href not in self.__queue \
+                        and href not in filtered_list:
+                    filtered_list.append(href)
+            return filtered_list
+        except(HTTPError, UnicodeDecodeError, URLError, ValueError):
             print("Error en la carga de la direccion: {}".format(origin_url))
+
         return list([])
 
-    def __normalize_url(self, origin, url):
+    def __normalize_url(self, base, url):
         """
         Normaliza las url dadas para validarlas
         :param origin: Url origen
         :param url: Url a normalizar
         :return: Url normalizada
         """
-        if url.startswith('http'):
-            return url
-        elif url.startswith('//'):
-            return 'https:' + url
-        elif url.startswith('://'):
-            return 'https' + url
-        elif url.startswith('/'):
-            return origin + url
-        elif url.startswith('#'):
-            return origin + url[1:]
-        elif '/' is url or "" is url:
+        if url.startswith("javascript:") or base + "/" == url:
             return None
+        if url.startswith("/") or url.startswith("#") or url.startswith("#") or url == "":
+            url = urljoin(base, url)
+        if "https://" in url:
+            url = url.replace("http://", "https://")
+        if "//" in url.replace("https://", ""):
+            url = "http://" + (url.replace("http://", "").replace('//', '/'))
+        return url
 
-    def scanRobots(self, url, link):
+    def __scanRobots(self, url, link):
         """ScanRobots
         Revisa el robots.txt y devuelve True en caso de que se pueda
         escanear la web y False en caso contrario
@@ -146,7 +161,7 @@ class Crawler:
     def save(self, path):
         if self.__obtained_urls is not None:
             path_array = path.split(".")
-            path = path_array[0] + type(self.__strategy).__name__ + path_array[-1]
+            path = path_array[0] + type(self.__strategy).__name__ + "." + path_array[-1]
             with open(os.getcwd() + "/" + path, 'w') as f:
                 for key, value in self.__obtained_urls.items():
                     f.write('%s\n' % key)
