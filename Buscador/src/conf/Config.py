@@ -45,9 +45,9 @@ class Config(metaclass=ConfigMeta):
                 for line in self.__load_lines(file_handler):
                     texts.append(BagOfWords(line.decode("utf-8")))
                 return texts
-        except (IOError, OSError) as err:
+        except (IOError, OSError):
             print("Error opening / processing file")
-            print("\t" + err)
+            print(file)
             return None
 
     def __load_lines(self, file):

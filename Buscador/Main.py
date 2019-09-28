@@ -1,4 +1,4 @@
-from src.conf.config import Config
+from src.conf.Config import Config
 from src.model.Finder import Finder
 
 
