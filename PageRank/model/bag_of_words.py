@@ -8,10 +8,16 @@ from __future__ import unicode_literals
 # nltk.download('wordnet')
 # nltk.download('stopwords')
 from functools import reduce
+from json import JSONEncoder
 
 from nltk import word_tokenize
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
+
+
+class MyEncoder(JSONEncoder):
+    def default(self, o):
+        return o.values
 
 
 class BagOfWords(object):
