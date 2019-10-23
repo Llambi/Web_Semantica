@@ -7,6 +7,7 @@ from __future__ import unicode_literals
 # nltk.download('punkt')
 # nltk.download('wordnet')
 # nltk.download('stopwords')
+import string
 from functools import reduce
 from json import JSONEncoder
 
@@ -107,7 +108,7 @@ class BagOfWords(object):
         stop = set(stopwords.words('english')) if self.filter_stopwords else []
         signosPuntuacion = ["?", "¿", "¡", "!", " ", ",", ".", ";", ":"]
         # Eliminar símbolos de puntuación y palabras vacias
-        tokens = list(filter(lambda x: x not in signosPuntuacion and x not in stop, words))
+        tokens = list(filter(lambda x: (x.isalpha() or x.isdigit()) and x not in stop, words))
 
         for word in tokens:
             word = word.lower()  # Pasar a minusculas

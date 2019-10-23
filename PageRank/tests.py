@@ -11,6 +11,7 @@ from __future__ import unicode_literals
 import unittest
 from io import StringIO
 
+from model.QueryAnalizer import QueryAnalizer
 from model.bag_of_words import BagOfWords
 from model.indexer_v1 import Indexer
 
@@ -141,35 +142,20 @@ class TestIndexer(unittest.TestCase):
         "this is another another example example example"
     ]
 
-    expected = {
-        "docs_index": [{
-            "a": 2,
-            "is": 1,
-            "sample": 1,
-            "this": 1
-        }, {
-            "another": 2,
-            "example": 3,
-            "is": 1,
-            "this": 1
-        }],
-        "words_index": {"this": {"idf": 0.0,
-                                 "documents": [{"tf": 1, "documents": [{"this": 1, "is": 1, "a": 2, "sample": 1}]},
-                                               {"tf": 1,
-                                                "documents": [{"this": 1, "is": 1, "another": 2, "example": 3}]}]},
-                        "is": {"idf": 0.0,
-                               "documents": [{"tf": 1, "documents": [{"this": 1, "is": 1, "a": 2, "sample": 1}]},
-                                             {"tf": 1,
-                                              "documents": [{"this": 1, "is": 1, "another": 2, "example": 3}]}]},
-                        "a": {"idf": 0.3010299956639812,
-                              "documents": [{"tf": 2, "documents": [{"this": 1, "is": 1, "a": 2, "sample": 1}]}]},
-                        "sample": {"idf": 0.3010299956639812,
-                                   "documents": [{"tf": 1, "documents": [{"this": 1, "is": 1, "a": 2, "sample": 1}]}]},
-                        "another": {"idf": 0.3010299956639812, "documents": [
-                            {"tf": 2, "documents": [{"this": 1, "is": 1, "another": 2, "example": 3}]}]},
-                        "example": {"idf": 0.3010299956639812, "documents": [
-                            {"tf": 3, "documents": [{"this": 1, "is": 1, "another": 2, "example": 3}]}]}}
-    }
+    expected = {"this": {"idf": 1.0, "documents": [{"tf": 0.2, "document": {"this": 1, "is": 1, "a": 2, "sample": 1}},
+                                                   {"tf": 0.14285714285714285,
+                                                    "document": {"this": 1, "is": 1, "another": 2, "example": 3}}]},
+                "is": {"idf": 1.0, "documents": [{"tf": 0.2, "document": {"this": 1, "is": 1, "a": 2, "sample": 1}},
+                                                 {"tf": 0.14285714285714285,
+                                                  "document": {"this": 1, "is": 1, "another": 2, "example": 3}}]},
+                "a": {"idf": 1.3010299956639813,
+                      "documents": [{"tf": 0.4, "document": {"this": 1, "is": 1, "a": 2, "sample": 1}}]},
+                "sample": {"idf": 1.3010299956639813,
+                           "documents": [{"tf": 0.2, "document": {"this": 1, "is": 1, "a": 2, "sample": 1}}]},
+                "another": {"idf": 1.3010299956639813, "documents": [
+                    {"tf": 0.2857142857142857, "document": {"this": 1, "is": 1, "another": 2, "example": 3}}]},
+                "example": {"idf": 1.3010299956639813, "documents": [
+                    {"tf": 0.42857142857142855, "document": {"this": 1, "is": 1, "another": 2, "example": 3}}]}}
 
     def test_index_creation(self):
         """Prueba la creación del indice
@@ -207,6 +193,30 @@ class TestIndexer(unittest.TestCase):
         indexer.dump(fd)
         print(fd.getvalue())
         fd.seek(0)
+
+
+class TestQueryAnalizer(unittest.TestCase):
+    """
+       Esta prueba usa el siguiente ejemplo como modelo
+       https://janav.wordpress.com/2013/10/27/tf-idf-and-cosine-similarity/
+       """
+    expected = {'life': [('The unexamined life is not worth living', 0.10591749249194375),
+                         ('The game of life is a game of everlasting learning', 0.07414224474436064)],
+                'learning': [('Never stop learning', 0.19653851254695906),
+                             ('The game of life is a game of everlasting learning', 0.058961553764087724)]}
+
+    documents = [
+        "The game of life is a game of everlasting learning",
+        "The unexamined life is not worth living",
+        "Never stop learning"
+    ]
+
+    query = "life learning"
+
+    def test_cosine_similarity(self):
+        analizer = QueryAnalizer(self.query, self.documents, enable_stemming=False, filter_stopwords=False)
+        result = analizer.cosine_similarity()
+        self.assertDictEqual(self.expected, result)
 
 
 if __name__ == '__main__':
