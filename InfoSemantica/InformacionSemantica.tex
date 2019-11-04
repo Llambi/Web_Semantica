@@ -1,4 +1,5 @@
 \documentclass{llncs}   % llncs.cls esta en la ruta predefinida de TEX Live
+\usepackage[colorlinks,citecolor=black,urlcolor=black,linkcolor=black,bookmarks=false,hypertexnames=true]{hyperref}
 \begin{document}
 \title{Información Semántica}
 
@@ -15,8 +16,57 @@ universidad de Oviedo. Campus de los Catalanes. Oviedo}}
 \section{Introducción}
 
 \section{Asignación de entidades}
+Se ha seleccionado el extracto (Anexo.\ref{noticia}) de la noticia sobre el ransomware que 
+ha afectado a empresas de España 
+(\href{https://www.elconfidencial.com/tecnologia/2019-11-04/everis-la-ser-ciberataque-ransomware_2312019/}{Noticia aquí}).
+Y, usando la herramienta \href{https://dandelion.eu/semantic-text/entity-extraction-demo/}{Dandelion}, 
+se han obtenido las siguientes entidades:
+
+\begin{itemize}
+    \item Organisations:
+    \begin{itemize}
+        \item Cadena SER.
+        \item Prisa Radio.
+        \item Everis.
+        \item Radio Madrid.
+    \end{itemize}
+    \item Concepts:
+    \begin{itemize}
+        \item Ransomware.
+        \item Virus Informatico.
+        \item Internet.
+        \item Computadora personal.
+        \item Prensa escrita.
+        \item Medio de Comunicación.
+        \item Empresa.
+    \end{itemize}
+\end{itemize}
 
 \section{JSON-LD}
 
 \section{Anexos}
+\subsection{Extracto de la noticia seleccionada.}\label{noticia}
+Varias empresas españolas han sufrido hoy un serio ataque de 'ransomware' que recuerda al 
+vivido a mediados de 2017 con Wannacry. Los primeros ataques confirmados de forma oficial 
+los han sufrido la Cadena SER y otras emisoras de Prisa Radio, pero también varias consultoras 
+tecnológicas, de las cuales Everis ha confirmado oficialmente estar afectada. "Estamos sufriendo 
+un ataque masivo de virus a la red de Everis. Por favor, mantengan los PCs apagados". Es el 
+mensaje interno que ha remitido Everis a sus empleados, según ha podido confirmar este diario 
+y han publicado también varios medios especializados. La compañía confirma que ha enviado a sus 
+trabajadores a casa hasta que puedan solventar la incidencia.
+
+"PRISA Radio ha sufrido esta madrugada un ataque de virus que ha tenido una afectación grave y 
+generalizada de todos nuestros sistemas informáticos. Los técnicos especializados en este tipo 
+de situaciones aconsejan encarecidamente la desconexión total de todos los sistemas con el fin 
+de evitar la propagación del virus. Hablamos, por tanto, de una situación de extrema emergencia", 
+ha comunicado esta mañana la empresa en un mensaje interno al que ha tenido acceso este diario.
+
+"A partir de ese momento, se irá chequeando puesto a puesto -siguiendo las instrucciones precisas 
+que os enviará el departamento de Sistemas- para autorizar en los casos en que haya garantía 
+absoluta la puesta en marcha de cada equipo. Por el momento, y hasta nuevo aviso, la emisión de 
+Cadena SER queda centralizada en Radio Madrid; quedan anuladas todas las emisiones locales y 
+regionales, salvo aquellas que hayan sido autorizadas expresamente por la Dirección de Antena. 
+En este momento, la seguridad es la máxima de la compañía por encima de cualquier otro compromiso. 
+Cualquier acción individual no autorizada puede poner en peligro el trabajo de rescate que se está 
+llevando a cabo", cierra el mensaje.
 \end{document}
