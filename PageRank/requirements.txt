@@ -1,0 +1,7 @@
+joblib==0.14.0
+metrics==0.3.3
+numpy==1.17.3
+pathlib2==2.3.5
+pathspec==0.5.5
+Pygments==2.2.0
+six==1.12.0
