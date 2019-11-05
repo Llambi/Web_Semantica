@@ -1,5 +1,9 @@
 \documentclass{llncs}   % llncs.cls esta en la ruta predefinida de TEX Live
 \usepackage[colorlinks,citecolor=black,urlcolor=black,linkcolor=black,bookmarks=false,hypertexnames=true]{hyperref}
+\usepackage{booktabs}
+\usepackage{tabu}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
 \begin{document}
 \title{Información Semántica}
 
@@ -15,11 +19,19 @@ universidad de Oviedo. Campus de los Catalanes. Oviedo}}
 
 \section{Introducción}
 
-\section{Asignación de entidades}
+\section{Asignación de entidades y creación de microdatos.}
+
+Se trata de seleccionar un extracto de una noticia y realizar la asignación de entidades a este en forma de microdatos mediante las 
+herramientas \href{https://dandelion.eu/semantic-text/entity-extraction-demo/}{Dandelion}, 
+\href{https://schema.org/docs/schemas.html}{Schema.org} y 
+\href{https://search.google.com/structured-data/testing-tool/u/0/}{Prueba de datos Estructurados de Google}.
+
+\subsection{Definicion de entidades mediante Dandelion.}
+
 Se ha seleccionado el extracto (Anexo.\ref{noticia}) de la noticia sobre el ransomware que 
 ha afectado a empresas de España 
 (\href{https://www.elconfidencial.com/tecnologia/2019-11-04/everis-la-ser-ciberataque-ransomware_2312019/}{Noticia aquí}).
-Y, usando la herramienta \href{https://dandelion.eu/semantic-text/entity-extraction-demo/}{Dandelion}, 
+Y, usando la herramienta Dandelion, 
 se han obtenido las siguientes entidades:
 
 \begin{itemize}
@@ -33,7 +45,7 @@ se han obtenido las siguientes entidades:
     \item Concepts:
     \begin{itemize}
         \item Ransomware.
-        \item Virus Informatico.
+        \item Virus Informático.
         \item Internet.
         \item Computadora personal.
         \item Prensa escrita.
@@ -41,6 +53,56 @@ se han obtenido las siguientes entidades:
         \item Empresa.
     \end{itemize}
 \end{itemize}
+
+\subsection{Refinamiento de entidades con Schema.org}
+
+Una vez que tenemos un primer aproximamiento a las entidades que aparecen en el extracto 
+(Anexo.\ref{noticia}) mediante el uso de la herramienta Dandelion, ahora pasaremos a completar 
+la lista generada mediante nuestro conocimiento del dominio de la noticia y el apoyo de Schema.org, 
+de manera que localicemos mas items o entidades y sus propiedades.
+
+Tras realizar esto generamos la siguiente lista de items:
+\begin{table}
+    \begin{tabu} to \textwidth {X[l]X[2]}
+        \toprule
+        Ransomware & (Thing) \\ \midrule
+        Descripción & Type of malicious software that threatens to publish the victim's data or perpetually block access to it unless a ransom is paid \\
+        Identificador &  Q926331 \\
+        Nombre & ransomware \\
+        Url & \href{https://www.wikidata.org/wiki/Q926331}{https://www.wikidata.org/wiki/Q926331} \\ \bottomrule
+    \end{tabu}
+\end{table}
+\begin{table}
+    \begin{tabu} to \textwidth {X[l]X[2]}
+        \toprule
+        Virus Informático & (Thing) \\ \midrule
+        Descripción & Computer program that can replicate itself and spread from one computer to another \\
+        Identificador &  Q485 \\
+        Nombre & computer virus \\
+        Url & \href{https://www.wikidata.org/wiki/Q485}{https://www.wikidata.org/wiki/Q485} \\ \bottomrule
+    \end{tabu}
+\end{table}
+\begin{table}
+    \begin{tabu} to \textwidth {X[l]X[2]}
+        \toprule
+        Internet & (Thing) \\ \midrule
+        Descripción & Global system of connected computer networks \\
+        Identificador &  Q75 \\
+        Nombre & Internet \\
+        Url & \href{https://www.wikidata.org/wiki/Q75}{https://www.wikidata.org/wiki/Q75} \\ \bottomrule
+    \end{tabu}
+\end{table}
+\begin{table}
+    \begin{tabu} to \textwidth {X[l]X[2]}
+        \toprule
+        Computadora Personal & (Thing) \\ \midrule
+        Descripción & Computer intended for use by an individual person \\
+        Identificador &  Q16338 \\
+        Nombre & personal computer \\
+        Url & \href{https://www.wikidata.org/wiki/Q16338}{https://www.wikidata.org/wiki/Q16338} \\ \bottomrule
+    \end{tabu}
+\end{table}
+
 
 \section{JSON-LD}
 
