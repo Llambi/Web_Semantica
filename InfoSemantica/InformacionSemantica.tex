@@ -2,20 +2,16 @@
 \usepackage[colorlinks,citecolor=black,urlcolor=black,linkcolor=black,bookmarks=false,hypertexnames=true]{hyperref}
 \usepackage{booktabs}
 \usepackage{tabu}
-\usepackage[utf8]{inputenc}
-\usepackage[english]{babel}
+\usepackage{listingsutf8}
+
+
 \begin{document}
-\title{Información Semántica}
+\title{Práctica 7 - Información Semántica}
 
 \author{Hugo Pérez Fernández.  \email{UO250708@uniovi.es}
 \institute{Sistemas de Información para la Web. Grado de Ingeniería Informática. EII. 
 universidad de Oviedo. Campus de los Catalanes. Oviedo}}
 \maketitle              
-
-\begin{abstract}
-
-\keywords{Web \and Semántica \and JSON-LD\and microdatos \and RDF}
-\end{abstract}
 
 \section{Introducción}
 
@@ -61,48 +57,45 @@ Una vez que tenemos un primer aproximamiento a las entidades que aparecen en el 
 la lista generada mediante nuestro conocimiento del dominio de la noticia y el apoyo de Schema.org, 
 de manera que localicemos mas items o entidades y sus propiedades.
 
-Tras realizar esto generamos la siguiente lista de items:
-\begin{table}
-    \begin{tabu} to \textwidth {X[l]X[2]}
-        \toprule
-        Ransomware & (Thing) \\ \midrule
-        Descripción & Type of malicious software that threatens to publish the victim's data or perpetually block access to it unless a ransom is paid \\
-        Identificador &  Q926331 \\
-        Nombre & ransomware \\
-        Url & \href{https://www.wikidata.org/wiki/Q926331}{https://www.wikidata.org/wiki/Q926331} \\ \bottomrule
-    \end{tabu}
-\end{table}
-\begin{table}
-    \begin{tabu} to \textwidth {X[l]X[2]}
-        \toprule
-        Virus Informático & (Thing) \\ \midrule
-        Descripción & Computer program that can replicate itself and spread from one computer to another \\
-        Identificador &  Q485 \\
-        Nombre & computer virus \\
-        Url & \href{https://www.wikidata.org/wiki/Q485}{https://www.wikidata.org/wiki/Q485} \\ \bottomrule
-    \end{tabu}
-\end{table}
-\begin{table}
-    \begin{tabu} to \textwidth {X[l]X[2]}
-        \toprule
-        Internet & (Thing) \\ \midrule
-        Descripción & Global system of connected computer networks \\
-        Identificador &  Q75 \\
-        Nombre & Internet \\
-        Url & \href{https://www.wikidata.org/wiki/Q75}{https://www.wikidata.org/wiki/Q75} \\ \bottomrule
-    \end{tabu}
-\end{table}
-\begin{table}
-    \begin{tabu} to \textwidth {X[l]X[2]}
-        \toprule
-        Computadora Personal & (Thing) \\ \midrule
-        Descripción & Computer intended for use by an individual person \\
-        Identificador &  Q16338 \\
-        Nombre & personal computer \\
-        Url & \href{https://www.wikidata.org/wiki/Q16338}{https://www.wikidata.org/wiki/Q16338} \\ \bottomrule
-    \end{tabu}
-\end{table}
+Tras realizar esto generamos el siguiente html con microdatos:
 
+\lstset{
+    frame=tb, % draw a frame at the top and bottom of the code block
+    tabsize=2, % tab space width
+    showstringspaces=false, % don't mark spaces in strings
+    numbers=left, % display line numbers on the left
+    commentstyle=\color{green}, % comment color
+    keywordstyle=\color{red}, % keyword color
+    stringstyle=\color{blue}, % string color    
+    inputencoding=utf8/latin1}
+\lstinputlisting[language=HTML,breaklines]{microdata.html}
+
+\subsection{Cuestiones sobre el uso de microdatos.}
+
+Ya realizado el proceso de los apartados anteriores queda plantearse las siguientes preguntas:
+
+\textbf{\textit{¿Deberían tener valor para itemid todos los items? ¿Qué valor debería asignarse?}}
+
+Si, todos los itemid deberian tener un itemid de manera que se pudiera identificar cada uno de ellos unequivocamente, 
+además esto favorecería la propiedad de la web Semántica por la que toda entidad debe ser enlazable.
+
+\textbf{\textit{¿Si hubiera varios candidatos cuál escogerías? ¿Por qué?}}.
+
+En el caso de que hubiera varios candidatos para el identificador de un item elegiria un valor alfanumerico, como 
+realiza WikiData por ejemplo, de este modo evitariamos colisiones y problemas de idiomas.
+
+\textbf{\textit{¿Cuál crees que es la solución de compromiso que podría resultar menos polémica en la mayoría de casos?}}.
+
+
+
+\textbf{\textit{¿Qué inconvenientes concretos te ha supuesto la obligación de incrustarlos metadatos allí donde te "forzaba" 
+la estructura del texto?}}.
+
+El mayor problema que ha supesto incrustar los metadatos en la estructura del texto es que, por el modo 
+en el que se hace cualquiera de ellos debe aparecer en el texto de manera que algunas propiedades obligatorias de las entidades
+quedan sin rellenar porque no aparecen en el texto, y esto al revisarlo mediante la herramienta de Google da errores, 
+que si quisieramos solucionar la unica manera posible para ello seria modificar el texto que se fuera a mostrar para que 
+apareciesen todos los datos de la propiedades de cada entidad.
 
 \section{JSON-LD}
 
