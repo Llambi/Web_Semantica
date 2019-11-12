@@ -90,12 +90,21 @@ Una vez verificado podemos traducir el formato turtle a JSONLD, usando para ello
 
 \section{Obtención automática de información estructurada}
 
+\subsection{Obtención de RDF's.}
+
+Obtendremos los documentos RDF para cada texto, par ello usaremos las siguientes herramientas: 
+\href{https://www.refinitiv.com/en/products/intelligent-tagging-text-analytics}{Open Calais}, 
+\href{https://www.dbpedia-spotlight.org/demo/}{DBPedia-spotlight} y 
+\href{http://wit.istc.cnr.it/stlab-tools/fred/demo/?}{FRED} 
+estos se pueden ver correspondientemente en los Anexos: \ref{OpenCalaisRDF}, \ref{DBPediaRDF} y \ref{FREDRDF}.
+
+
+
 \section{Anexos}
 
 \subsection{Textos de Prueba}\label{Textos}
 
 \paragraph{Texto 1:}
-
 “Miles Davis was an american jazz musician.”
 
 \paragraph{Texto 2:}
@@ -103,5 +112,18 @@ Una vez verificado podemos traducir el formato turtle a JSONLD, usando para ello
 
 \paragraph{Texto 3:}
 “The New York Times reported that John McCarthy died. He invented the programming language LISP.”
+
+\subsection{Archivos RDF producidos por herramientas}
+
+\subsubsection{Open Calais}\label{OpenCalaisRDF}
+%\lstinputlisting[language=XML, firstline=1, lastline=25, breaklines, caption={Archivo RDF con la información estructurada del texto 1.}]{resources/OpenCalaisText1.rdf}
+%\lstinputlisting[language=XML, lastline=50, breaklines, caption={Archivo RDF con la información estructurada del texto 2.}]{resources/OpenCalaisText2.rdf}
+%\lstinputlisting[language=XML, lastline=50, breaklines, caption={Archivo RDF con la información estructurada del texto 3.}]{resources/OpenCalaisText3.rdf}
+
+\subsubsection{DBPedia-Spotlight}\label{DBPediaRDF}
+\subsubsection{FRED}\label{FREDRDF}
+%\lstinputlisting[language=XML, firstline=1, lastline=25, breaklines, caption={Archivo RDF con la información estructurada del texto 1.}]{resources/FredText1.rdf}
+%\lstinputlisting[language=XML, lastline=50, breaklines, caption={Archivo RDF con la información estructurada del texto 2.}]{resources/FredText2.rdf}
+%\lstinputlisting[language=XML, lastline=50, breaklines, caption={Archivo RDF con la información estructurada del texto 3.}]{resources/FredText3.rdf}
 
 \end{document}

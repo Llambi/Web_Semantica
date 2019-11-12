@@ -1,0 +1,183 @@
+@prefix dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#> .
+@prefix ermrk: <http://www.essepuntato.it/2008/12/earmark#> .
+@prefix fred: <http://www.ontologydesignpatterns.org/ont/fred/domain.owl#> .
+@prefix j.0: <http://www.ontologydesignpatterns.org/ont/vn/abox/role/> .
+@prefix j.1: <http://www.ontologydesignpatterns.org/ont/cnlp/dependencies.owl#> .
+@prefix j.4: <http://ontologydesignpatterns.org/cp/owl/semiotics.owl#> .
+@prefix j.6: <http://www.ontologydesignpatterns.org/ont/fred/pos.owl#> .
+@prefix j.7: <http://www.ontologydesignpatterns.org/ont/boxer/boxer.owl#> .
+@prefix j.8: <http://www.ontologydesignpatterns.org/ont/fred/quantifiers.owl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+j.4:denotes a owl:ObjectProperty .
+
+j.4:hasInterpretant a owl:ObjectProperty .
+
+ermrk:begins a owl:ObjectProperty .
+
+ermrk:ends a owl:ObjectProperty .
+
+ermrk:hasContent a owl:ObjectProperty .
+
+ermrk:refersTo a owl:ObjectProperty .
+
+j.7:possibleType a owl:ObjectProperty .
+
+j.1:other_coref a owl:ObjectProperty .
+
+dul:associatedWith a owl:ObjectProperty .
+
+fred:offset_0_2_he a ermrk:PointerRange ;
+    rdfs:label "he"^^xsd:string ;
+    j.4:denotes fred:male_1 ;
+    j.4:hasInterpretant fred:Male ;
+    ermrk:begins "0"^^xsd:nonNegativeInteger ;
+    ermrk:ends "2"^^xsd:nonNegativeInteger ;
+    ermrk:refersTo fred:docuverse ;
+    j.6:pennpos j.6:PRP .
+
+fred:offset_18_26_reported a ermrk:PointerRange ;
+    rdfs:label "reported"^^xsd:string ;
+    j.4:denotes fred:report_1 ;
+    j.4:hasInterpretant fred:Report ;
+    ermrk:begins "18"^^xsd:nonNegativeInteger ;
+    ermrk:ends "26"^^xsd:nonNegativeInteger ;
+    ermrk:refersTo fred:docuverse ;
+    j.6:pennpos j.6:VBN .
+
+fred:offset_32_45_John_McCarthy a ermrk:PointerRange ;
+    rdfs:label "John_McCarthy"^^xsd:string ;
+    j.4:denotes fred:John_mccarthy ;
+    ermrk:begins "32"^^xsd:nonNegativeInteger ;
+    ermrk:ends "45"^^xsd:nonNegativeInteger ;
+    ermrk:refersTo fred:docuverse ;
+    j.6:pennpos j.6:NNP .
+
+fred:offset_46_50_died a ermrk:PointerRange ;
+    rdfs:label "died"^^xsd:string ;
+    j.4:denotes fred:die_1 ;
+    j.4:hasInterpretant fred:Die ;
+    ermrk:begins "46"^^xsd:nonNegativeInteger ;
+    ermrk:ends "50"^^xsd:nonNegativeInteger ;
+    ermrk:refersTo fred:docuverse ;
+    j.6:pennpos j.6:VBD .
+
+fred:offset_55_63_invented a ermrk:PointerRange ;
+    rdfs:label "invented"^^xsd:string ;
+    j.4:denotes fred:invent_1 ;
+    j.4:hasInterpretant fred:Invent ;
+    ermrk:begins "55"^^xsd:nonNegativeInteger ;
+    ermrk:ends "63"^^xsd:nonNegativeInteger ;
+    ermrk:refersTo fred:docuverse ;
+    j.6:pennpos j.6:VBD .
+
+fred:offset_68_79_programming a ermrk:PointerRange ;
+    rdfs:label "programming"^^xsd:string ;
+    j.4:denotes fred:Lisp,
+        fred:programming_1 ;
+    j.4:hasInterpretant fred:Programming ;
+    ermrk:begins "68"^^xsd:nonNegativeInteger ;
+    ermrk:ends "79"^^xsd:nonNegativeInteger ;
+    ermrk:refersTo fred:docuverse ;
+    j.6:pennpos j.6:NN .
+
+<http://www.ontologydesignpatterns.org/ont/fred/domain.owl#offset_68_88_programming+language> a ermrk:PointerRange ;
+    rdfs:label "Programming Language"^^xsd:string,
+        "programming language"^^xsd:string ;
+    j.4:denotes fred:ProgrammingLanguage ;
+    ermrk:begins "68"^^xsd:nonNegativeInteger ;
+    ermrk:ends "88"^^xsd:nonNegativeInteger ;
+    ermrk:refersTo fred:docuverse .
+
+fred:offset_80_88_language a ermrk:PointerRange ;
+    rdfs:label "language"^^xsd:string ;
+    j.4:denotes fred:Lisp,
+        fred:language_1 ;
+    j.4:hasInterpretant fred:Language ;
+    ermrk:begins "80"^^xsd:nonNegativeInteger ;
+    ermrk:ends "88"^^xsd:nonNegativeInteger ;
+    ermrk:refersTo fred:docuverse ;
+    j.6:pennpos j.6:NN .
+
+fred:offset_89_93_LISP a ermrk:PointerRange ;
+    rdfs:label "LISP"^^xsd:string ;
+    j.4:denotes fred:Lisp ;
+    j.4:hasInterpretant fred:Language,
+        fred:Programming ;
+    ermrk:begins "89"^^xsd:nonNegativeInteger ;
+    ermrk:ends "93"^^xsd:nonNegativeInteger ;
+    ermrk:refersTo fred:docuverse ;
+    j.6:pennpos j.6:NNP .
+
+j.6:boxerpos a owl:ObjectProperty .
+
+j.6:pennpos a owl:ObjectProperty .
+
+j.8:hasDeterminer a owl:ObjectProperty .
+
+j.0:Agent a owl:ObjectProperty .
+
+j.0:Product a owl:ObjectProperty .
+
+j.0:Theme a owl:ObjectProperty .
+
+rdfs:subClassOf a owl:ObjectProperty .
+
+owl:equivalentClass a owl:ObjectProperty .
+
+fred:programming_1 a fred:Programming ;
+    dul:associatedWith fred:Lisp ;
+    j.8:hasDeterminer j.8:the .
+
+fred:report_1 a fred:Report ;
+    j.0:Agent fred:male_1 ;
+    j.0:Theme fred:die_1 .
+
+fred:Die j.6:boxerpos j.6:v ;
+    rdfs:subClassOf dul:Event ;
+    owl:equivalentClass <http://www.ontologydesignpatterns.org/ont/vn/data/Die_48020000> .
+
+fred:Invent j.6:boxerpos j.6:v ;
+    rdfs:subClassOf dul:Event ;
+    owl:equivalentClass <http://www.ontologydesignpatterns.org/ont/vn/data/Invent_26030100> .
+
+fred:John_mccarthy j.7:possibleType <http://xmlns.com/foaf/0.1/Person> ;
+    = <http://dbpedia.org/resource/John_McCarthy_(computer_scientist)> .
+
+fred:Male j.6:boxerpos j.6:a .
+
+fred:ProgrammingLanguage a owl:Class ;
+    dul:associatedWith fred:Programming ;
+    rdfs:subClassOf fred:Language ;
+    owl:equivalentClass <http://dbpedia.org/resource/Programming_language> .
+
+fred:Report j.6:boxerpos j.6:v ;
+    rdfs:subClassOf dul:Event ;
+    owl:equivalentClass <http://www.ontologydesignpatterns.org/ont/vn/data/Report_29090100> .
+
+fred:die_1 a fred:Die ;
+    j.0:Theme fred:John_mccarthy .
+
+fred:invent_1 a fred:Invent ;
+    j.0:Agent fred:male_1 ;
+    j.0:Product fred:Lisp .
+
+fred:Language a owl:Class ;
+    j.6:boxerpos j.6:n .
+
+fred:male_1 a fred:Male ;
+    j.1:other_coref fred:invent_1 .
+
+fred:Programming a owl:Class ;
+    j.6:boxerpos j.6:n .
+
+fred:Lisp a fred:ProgrammingLanguage ;
+    j.7:possibleType owl:Thing ;
+    = <http://dbpedia.org/resource/Lisp_(programming_language)> .
+
+fred:docuverse a ermrk:StringDocuverse ;
+    ermrk:hasContent "he New_York_Times reported that John_McCarthy died. He invented the programming language LISP." .

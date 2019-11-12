@@ -1,7 +1,7 @@
 # Fdb version 3
-["pdflatex"] 1573587487 "/Users/llambi/Documents/Proyectos/Python/Web_Semantica/RDF/rdf.tex" "/Users/llambi/Documents/Proyectos/Python/Web_Semantica/RDF/rdf.pdf" "rdf" 1573587489
-  "/Users/llambi/Documents/Proyectos/Python/Web_Semantica/RDF/rdf.aux" 1573587489 3189 c63943fe17e788cee2eb08fa0baa4aa6 ""
-  "/Users/llambi/Documents/Proyectos/Python/Web_Semantica/RDF/rdf.tex" 1573587485 4623 a56f4ad04eade33f8b91440a4021b9e0 ""
+["pdflatex"] 1573593173 "/Users/llambi/Documents/Proyectos/Python/Web_Semantica/RDF/rdf.tex" "/Users/llambi/Documents/Proyectos/Python/Web_Semantica/RDF/rdf.pdf" "rdf" 1573593175
+  "/Users/llambi/Documents/Proyectos/Python/Web_Semantica/RDF/rdf.aux" 1573593175 3952 096a40ed3d04256bed3b38572fa4e3b4 ""
+  "/Users/llambi/Documents/Proyectos/Python/Web_Semantica/RDF/rdf.tex" 1573593173 6236 7978a70c5ff89b23e77f665c3ab8539b ""
   "/Users/llambi/Library/texmf/tex/latex/commonstuff/llncs.cls" 1572881962 43467 a21466011e5ed5d4c3f1d5a9af897395 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm" 1136768653 1328 c834bbb027764024c09d3d2bf908b5f0 ""
@@ -65,14 +65,14 @@
   "/usr/local/texlive/2019/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1557342064 3277517 23507ed665b4dd9046f0f2a94bbef2be ""
   "/usr/local/texlive/2019/texmf-var/web2c/pdftex/pdflatex.fmt" 1570053358 4259636 df1705e79f711d36781bcf6d6ed456aa ""
   "/usr/local/texlive/2019/texmf.cnf" 1557341546 577 d150fef99ac436ad1156e86b0892f6ef ""
-  "rdf.aux" 1573587489 3189 c63943fe17e788cee2eb08fa0baa4aa6 "pdflatex"
-  "rdf.tex" 1573587485 4623 a56f4ad04eade33f8b91440a4021b9e0 ""
+  "rdf.aux" 1573593175 3952 096a40ed3d04256bed3b38572fa4e3b4 "pdflatex"
+  "rdf.tex" 1573593173 6236 7978a70c5ff89b23e77f665c3ab8539b ""
   "resources/RDFValidation.png" 1573586749 439316 248d7dfae475ea4282f04ca46b186768 ""
   "resources/jsonld.json" 1573587151 3582 38b02531a662f52f78d7d8a920f620d5 ""
   "resources/texts.ttl" 1573585981 2006 e4a09f8aa69aa9fab6419e74ee42aefb ""
   (generated)
   "rdf.pdf"
-  "/Users/llambi/Documents/Proyectos/Python/Web_Semantica/RDF/rdf.log"
-  "/Users/llambi/Documents/Proyectos/Python/Web_Semantica/RDF/rdf.pdf"
   "rdf.aux"
   "rdf.log"
+  "/Users/llambi/Documents/Proyectos/Python/Web_Semantica/RDF/rdf.pdf"
+  "/Users/llambi/Documents/Proyectos/Python/Web_Semantica/RDF/rdf.log"
