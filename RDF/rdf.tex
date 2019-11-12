@@ -19,12 +19,12 @@ universidad de Oviedo. Campus de los Catalanes. Oviedo.}}
 
 Primero obtendremos toda la información estructurada de los textos indicados en el Anexo.\ref{Textos}, usando para ello la web \href{https://schema.org}{Schema.org}:
 
-\paragraph{Texto1}
+\paragraph{Texto 1:}
 
 En el caso de este texto se esta mecionando a una persona (\textit{schema:Person}), cuyo nombre es Miles Davis, ademas esta persona tiene como nacionalidad \textit{schema:Nacionality}
 Americano (Estadounidense), y su profesión (\textit{schema:Ocupation}) es músico concretamente de Jazz.
 
-\paragraph{Texto2}
+\paragraph{Texto 2:}
 
 En en este caso la información se puede estructurar de la siguiente forma:
 
@@ -37,7 +37,7 @@ En en este caso la información se puede estructurar de la siguiente forma:
     sobre el el valor del tipo de cambio del Euro.
 \end{itemize}
 
-\paragraph{Texto3}
+\paragraph{Texto 3:}
 
 En este último se  puede estructura la información del siguiente modo:
 
@@ -64,16 +64,44 @@ Con los datos obtenidos anteriormente se, usando la notacion Turtle, la informac
 }
 \lstinputlisting[language=HTML, breaklines, caption={Archivo Turtle con la información estructurada de los textos.}]{resources/texts.ttl}
 
+Ahora verificaremos la estructura de la sistaxis RDF de del archivo anterior mediante la herramienta \href{http://rdfshape.weso.es/dataInfo}{RDFShape}:
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{resources/RDFValidation.png}
+    \caption{Resultado de la validación del ttl con RDFShape.}
+    \label{Fig.1}
+\end{figure}
+
+Una vez verificado podemos traducir el formato turtle a JSONLD, usando para ello la herramienta \href{https://rdf-translator.appspot.com}{RDF-Translator}, de forma que quedaria de la siguiente manera:
+
+\lstset{
+    frame=tb, % draw a frame at the top and bottom of the code block
+    tabsize=2, % tab space width
+    showstringspaces=false, % don't mark spaces in strings
+    numbers=left, % display line numbers on the left
+    commentstyle=\color{green}, % comment color
+    keywordstyle=\color{red}, % keyword color
+    stringstyle=\color{black}, % string color    
+    inputencoding=utf8/latin1
+}
+\lstinputlisting[language=HTML,breaklines,caption={Archivo Resultado de la traduccion de turtle a JSONLD.}, captionpos=b]{resources/jsonld.json}
+
+
 \section{Obtención automática de información estructurada}
 
 \section{Anexos}
 
 \subsection{Textos de Prueba}\label{Textos}
 
+\paragraph{Texto 1:}
+
 “Miles Davis was an american jazz musician.”
 
+\paragraph{Texto 2:}
 “President Barack Obama and European Union leaders huddled in Washington amid growing fears over the future of the euro, which closed greater than 1.3 dollars.”
 
+\paragraph{Texto 3:}
 “The New York Times reported that John McCarthy died. He invented the programming language LISP.”
 
 \end{document}

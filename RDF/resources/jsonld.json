@@ -1,0 +1,113 @@
+{
+    "@context": {
+      "foaf": "http://xmlns.com/foaf/0.1/",
+      "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+      "wikidata": "http://www.wikidata.org/",
+      "xsd": "http://www.w3.org/2001/XMLSchema#"
+    },
+    "@graph": [
+      {
+        "@id": "file:///base/data/home/apps/s%7Erdf-translator/2.408516547054015808/#Tipo_euro",
+        "wikidata:P1181": "1.3",
+        "wikidata:Q21503252": {
+          "@id": "wikidata:Q4916"
+        }
+      },
+      {
+        "@id": "file:///base/data/home/apps/s%7Erdf-translator/2.408516547054015808/#Meeting",
+        "wikidata:Property:P710": [
+          {
+            "@id": "wikidata:Q458"
+          },
+          {
+            "@id": "wikidata:Q76"
+          }
+        ],
+        "wikidata:Property:P921": {
+          "@id": "file:///base/data/home/apps/s%7Erdf-translator/2.408516547054015808/#tipo_euro"
+        },
+        "wikidata:Q21503252": {
+          "@id": "wikidata:Q2761147"
+        }
+      },
+      {
+        "@id": "file:///base/data/home/apps/s%7Erdf-translator/2.408516547054015808/#Miles_Davis",
+        "foaf:name": "Miles Davis",
+        "wikidata:Property:P106": {
+          "@id": "wikidata:Q15981151"
+        },
+        "wikidata:Property:P27": {
+          "@id": "wikidata:Q30"
+        },
+        "wikidata:Q21503252": {
+          "@id": "foaf:Person"
+        }
+      },
+      {
+        "@id": "file:///base/data/home/apps/s%7Erdf-translator/2.408516547054015808/#New_York_Times",
+        "wikidata:Q21503252": {
+          "@id": "wikidata:Q43229"
+        },
+        "wikidata:Q82799": "New York Times"
+      },
+      {
+        "@id": "file:///base/data/home/apps/s%7Erdf-translator/2.408516547054015808/#John_McCarthy",
+        "foaf:name": "John McCarthy",
+        "wikidata:Q21503252": [
+          {
+            "@id": "wikidata:Q48422"
+          },
+          {
+            "@id": "foaf:Person"
+          }
+        ]
+      },
+      {
+        "@id": "file:///base/data/home/apps/s%7Erdf-translator/2.408516547054015808/#WDC",
+        "wikidata:Q21503252": {
+          "@id": "wikidata:Q515"
+        },
+        "wikidata:Q82799": "Washington"
+      },
+      {
+        "@id": "file:///base/data/home/apps/s%7Erdf-translator/2.408516547054015808/#UE",
+        "wikidata:Q21503252": {
+          "@id": "wikidata:Q43229"
+        },
+        "wikidata:Q82799": "Unión Europea"
+      },
+      {
+        "@id": "file:///base/data/home/apps/s%7Erdf-translator/2.408516547054015808/#Barack_Obama",
+        "foaf:name": "Barack Obama",
+        "wikidata:Property:P39": {
+          "@id": "wikidata:Q11696"
+        },
+        "wikidata:Q21503252": {
+          "@id": "foaf:Person"
+        }
+      },
+      {
+        "@id": "file:///base/data/home/apps/s%7Erdf-translator/2.408516547054015808/#LISP",
+        "wikidata:P178": {
+          "@id": "file:///base/data/home/apps/s%7Erdf-translator/2.408516547054015808/#John_McCarthy"
+        },
+        "wikidata:Q21503252": {
+          "@id": "wikidata:Q9143"
+        },
+        "wikidata:Q82799": "LISP"
+      },
+      {
+        "@id": "file:///base/data/home/apps/s%7Erdf-translator/2.408516547054015808/#News",
+        "wikidata:Property:P123": {
+          "@id": "file:///base/data/home/apps/s%7Erdf-translator/2.408516547054015808/#New_York_Times"
+        },
+        "wikidata:Property:P921": {
+          "@id": "file:///base/data/home/apps/s%7Erdf-translator/2.408516547054015808/#John_McCarthy"
+        },
+        "wikidata:Q21503252": {
+          "@id": "wikidata:Q732577"
+        }
+      }
+    ]
+  }

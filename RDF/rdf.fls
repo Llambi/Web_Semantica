@@ -109,6 +109,16 @@ INPUT /usr/local/texlive/2019/texmf-dist/tex/generic/oberdiek/se-iso-8859-1.def
 INPUT /usr/local/texlive/2019/texmf-dist/tex/latex/base/omlcmr.fd
 INPUT /usr/local/texlive/2019/texmf-dist/tex/latex/base/omlcmr.fd
 INPUT /usr/local/texlive/2019/texmf-var/fonts/map/pdftex/updmap/pdftex.map
+INPUT /Users/llambi/Documents/Proyectos/Python/Web_Semantica/RDF/resources/RDFValidation.png
+INPUT /Users/llambi/Documents/Proyectos/Python/Web_Semantica/RDF/resources/RDFValidation.png
+INPUT /Users/llambi/Documents/Proyectos/Python/Web_Semantica/RDF/resources/RDFValidation.png
+INPUT /Users/llambi/Documents/Proyectos/Python/Web_Semantica/RDF/resources/jsonld.json
+INPUT /usr/local/texlive/2019/texmf-dist/tex/latex/base/latin1.def
+INPUT /usr/local/texlive/2019/texmf-dist/tex/latex/base/latin1.def
+INPUT /Users/llambi/Documents/Proyectos/Python/Web_Semantica/RDF/resources/jsonld.json
+INPUT /Users/llambi/Documents/Proyectos/Python/Web_Semantica/RDF/resources/jsonld.json
+INPUT /usr/local/texlive/2019/texmf-dist/tex/latex/base/omscmr.fd
+INPUT /usr/local/texlive/2019/texmf-dist/tex/latex/base/omscmr.fd
 INPUT /Users/llambi/Documents/Proyectos/Python/Web_Semantica/RDF/rdf.aux
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
@@ -116,5 +126,6 @@ INPUT /usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pf
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb
+INPUT /usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb
