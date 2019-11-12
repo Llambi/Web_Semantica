@@ -1,0 +1,57 @@
+@prefix wikidata: <http://www.wikidata.org/> .
+@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+
+# Texto 1: 
+
+# Persona de nombre Miles Davis y ocupación músico de Jazz
+<#Miles_Davis>  wikidata:Q21503252   foaf:Person ;
+                foaf:name   "Miles Davis" ;
+                wikidata:Property:P27    wikidata:Q30 ;
+                wikidata:Property:P106    wikidata:Q15981151 .
+
+# Texto 2: 
+
+# Persona Barack Obama Presidente
+<#Barack_Obama> wikidata:Q21503252   foaf:Person ;
+                foaf:name   "Barack Obama" ;
+                wikidata:Property:P39    wikidata:Q11696 .
+
+# Organización llamada Unión Europea
+<#UE>   wikidata:Q21503252   wikidata:Q43229 ;
+        wikidata:Q82799 "Unión Europea" .
+
+# Ciudad llamada Washington
+<#WDC>  wikidata:Q21503252   wikidata:Q515 ;
+        wikidata:Q82799 "Washington" .
+
+# Tipo de cambio del euro a 1.3
+<#Tipo_euro>    wikidata:Q21503252 wikidata:Q4916 ;
+                wikidata:Q21503252 wikidata:Q4916 ;
+                wikidata:P1181  "1.3" .
+
+# Encuentro entre Unión Europea y Barak Obama
+<#Meeting>  wikidata:Q21503252   wikidata:Q2761147 ;
+            wikidata:Property:P710 wikidata:Q458 ;
+            wikidata:Property:P710 wikidata:Q76 ;
+            wikidata:Property:P921 <#tipo_euro> .
+
+# Texto 3: 
+
+# Organizacion New York Times
+<#New_York_Times>   wikidata:Q21503252  wikidata:Q43229 ;
+                    wikidata:Q82799 "New York Times" .
+
+# Persona John McCarthy muerta
+<#John_McCarthy>    wikidata:Q21503252   foaf:Person ;
+                    foaf:name   "John McCarthy" ;
+                    wikidata:Q21503252   wikidata:Q48422 .
+
+# Lenguaje de programación desarrollado por John McCarthy
+<#LISP> wikidata:Q21503252  wikidata:Q9143 ;
+        wikidata:Q82799 "LISP" ;
+        wikidata:P178 <#John_McCarthy> .
+
+# The New York Times informa sobre la muerte de John McCarthy
+<#News> wikidata:Q21503252  wikidata:Q732577 ;
+        wikidata:Property:P921  <#John_McCarthy> ;
+        wikidata:Property:P123  <#New_York_Times> .
