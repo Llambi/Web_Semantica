@@ -2,7 +2,8 @@
 \usepackage[colorlinks,citecolor=black,urlcolor=black,linkcolor=black,bookmarks=false,hypertexnames=true]{hyperref}
 \usepackage{listingsutf8}
 \usepackage{graphicx}
-
+\usepackage[utf8]{inputenc}
+\DeclareUnicodeCharacter{0301}{\'}
 
 \begin{document}
 \title{Práctica 9 - Tripletas RDF}
@@ -96,9 +97,24 @@ Obtendremos los documentos RDF para cada texto, par ello usaremos las siguientes
 \href{https://www.refinitiv.com/en/products/intelligent-tagging-text-analytics}{Open Calais}, 
 \href{https://www.dbpedia-spotlight.org/demo/}{DBPedia-spotlight} y 
 \href{http://wit.istc.cnr.it/stlab-tools/fred/demo/?}{FRED} 
-estos se pueden ver correspondientemente en los Anexos: \ref{OpenCalaisRDF}, \ref{DBPediaRDF} y \ref{FREDRDF}.
+estos se pueden ver correspondientemente en los Anexos: \ref{OpenCalaisRDF}, \ref{DBPediaRDF} y \ref{FREDRDF} 
+que posteriormente se han traduciodo a formato turtle (Anexos: \ref{OpenCalaisTurtle}, \ref{DBPediaTurtle} y \ref{FREDTurtle})
+y a JSONLD (Anexos: \ref{OpenCalaisJSON}, \ref{DBPediaJSON} y \ref{FREDJSON}).
 
+Dada esta información ahora podremos dar respuesta a las siguientes cuestiones:
 
+\textbf{\textit{¿Qué ontologías usa cada servicio para "tipar" las instancias detectadas en el texto?}}
+
+\textbf{\textit{¿Existe algún tipo de dichas ontologías que pudiera considerarse equivalente a otro tipo en schema.org? 
+Señala todos los casos que te hayas encontrado con cada servicio, indicando también (si fuera posible) qué propiedades 
+de un tipo mapearían sobre propiedades del otro.}}
+
+\textbf{\textit{Reflexiona acerca de los motivos que pueden llevar a cada equipo de desarrolladores a producir una ontologíapropia. 
+Investiga (someramente) sobre el problema de alineación de ontologías.}}
+
+\textbf{\textit{Utiliza el servicio sameAs.org para localizar equivalencias para todos los tipos fundamentales de Open Calais, DBPedia 
+Spotlight y FRED, así como los homólogos de Schema.org que detectaste. ¿Existe algún sevicio para el que no se disponga de información 
+en sameAs.org?}}
 
 \section{Anexos}
 
@@ -116,14 +132,40 @@ estos se pueden ver correspondientemente en los Anexos: \ref{OpenCalaisRDF}, \re
 \subsection{Archivos RDF producidos por herramientas}
 
 \subsubsection{Open Calais}\label{OpenCalaisRDF}
-%\lstinputlisting[language=XML, firstline=1, lastline=25, breaklines, caption={Archivo RDF con la información estructurada del texto 1.}]{resources/OpenCalaisText1.rdf}
-%\lstinputlisting[language=XML, lastline=50, breaklines, caption={Archivo RDF con la información estructurada del texto 2.}]{resources/OpenCalaisText2.rdf}
-%\lstinputlisting[language=XML, lastline=50, breaklines, caption={Archivo RDF con la información estructurada del texto 3.}]{resources/OpenCalaisText3.rdf}
+%\lstinputlisting[language=XML, firstline=1, lastline=25, breaklines, caption={Archivo RDF con la información estructurada del texto 1.}]{resources/OpenCalais/OpenCalaisText1.rdf}
+%\lstinputlisting[language=XML, lastline=50, breaklines, caption={Archivo RDF con la información estructurada del texto 2.}]{resources/OpenCalais/OpenCalaisText2.rdf}
+%\lstinputlisting[language=XML, lastline=50, breaklines, caption={Archivo RDF con la información estructurada del texto 3.}]{resources/OpenCalais/OpenCalaisText3.rdf}
 
 \subsubsection{DBPedia-Spotlight}\label{DBPediaRDF}
 \subsubsection{FRED}\label{FREDRDF}
-%\lstinputlisting[language=XML, firstline=1, lastline=25, breaklines, caption={Archivo RDF con la información estructurada del texto 1.}]{resources/FredText1.rdf}
-%\lstinputlisting[language=XML, lastline=50, breaklines, caption={Archivo RDF con la información estructurada del texto 2.}]{resources/FredText2.rdf}
-%\lstinputlisting[language=XML, lastline=50, breaklines, caption={Archivo RDF con la información estructurada del texto 3.}]{resources/FredText3.rdf}
+%\lstinputlisting[language=XML, firstline=1, lastline=25, breaklines, caption={Archivo RDF con la información estructurada del texto 1.}]{resources/Fred/FredText1.rdf}
+%\lstinputlisting[language=XML, lastline=50, breaklines, caption={Archivo RDF con la información estructurada del texto 2.}]{resources/Fred/FredText2.rdf}
+%\lstinputlisting[language=XML, lastline=50, breaklines, caption={Archivo RDF con la información estructurada del texto 3.}]{resources/Fred/FredText3.rdf}
+
+\subsection{Archivos Turtle producidos por herramientas}
+
+\subsubsection{Open Calais}\label{OpenCalaisTurtle}
+%\lstinputlisting[language=XML, firstline=1, lastline=25, breaklines, caption={Archivo RDF con la información estructurada del texto 1.}]{resources/OpenCalais/OpenCalaisText1.ttl}
+%\lstinputlisting[language=XML, lastline=50, breaklines, caption={Archivo RDF con la información estructurada del texto 2.}]{resources/OpenCalais/OpenCalaisText2.ttl}
+%\lstinputlisting[language=XML, lastline=50, breaklines, caption={Archivo RDF con la información estructurada del texto 3.}]{resources/OpenCalais/OpenCalaisText3.ttl}
+
+\subsubsection{DBPedia-Spotlight}\label{DBPediaTurtle}
+\subsubsection{FRED}\label{FREDTurtle}
+%\lstinputlisting[language=XML, firstline=1, lastline=25, breaklines, caption={Archivo RDF con la información estructurada del texto 1.}]{resources/Fred/FredText1.ttl}
+%\lstinputlisting[language=XML, lastline=50, breaklines, caption={Archivo RDF con la información estructurada del texto 2.}]{resources/Fred/FredText2.ttl}
+%\lstinputlisting[language=XML, lastline=50, breaklines, caption={Archivo RDF con la información estructurada del texto 3.}]{resources/Fred/FredText3.ttl}
+
+\subsection{Archivos JSONLD producidos por herramientas}
+
+\subsubsection{Open Calais}\label{OpenCalaisJSON}
+%\lstinputlisting[language=XML, firstline=1, lastline=25, breaklines, caption={Archivo RDF con la información estructurada del texto 1.}]{resources/OpenCalais/OpenCalaisText1.json}
+%\lstinputlisting[language=XML, lastline=50, breaklines, caption={Archivo RDF con la información estructurada del texto 2.}]{resources/OpenCalais/OpenCalaisText2.json}
+%\lstinputlisting[language=XML, lastline=50, breaklines, caption={Archivo RDF con la información estructurada del texto 3.}]{resources/OpenCalais/OpenCalaisText3.json}
+
+\subsubsection{DBPedia-Spotlight}\label{DBPediaJSON}
+\subsubsection{FRED}\label{FREDJSON}
+%\lstinputlisting[language=XML, firstline=1, lastline=25, breaklines, caption={Archivo RDF con la información estructurada del texto 1.}]{resources/Fred/FredText1.json}
+%\lstinputlisting[language=XML, lastline=50, breaklines, caption={Archivo RDF con la información estructurada del texto 2.}]{resources/Fred/FredText2.json}
+%\lstinputlisting[language=XML, lastline=50, breaklines, caption={Archivo RDF con la información estructurada del texto 3.}]{resources/Fred/FredText3.json}
 
 \end{document}
