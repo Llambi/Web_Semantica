@@ -3,10 +3,11 @@
 \usepackage{listingsutf8}
 \usepackage{graphicx}
 \usepackage[utf8]{inputenc}
+\usepackage[section]{placeins}
 \DeclareUnicodeCharacter{0301}{\'}
 
 \begin{document}
-\title{Práctica 9 - Tripletas RDF}
+\title{Práctica 9 - Obtención de Información Estructuradas y uso de Ontologías.}
 
 \author{Hugo Pérez Fernández.  \email{UO250708@uniovi.es}
 \institute{Sistemas de Información para la Web. Grado de Ingeniería Informática. EII. 
@@ -15,6 +16,8 @@ universidad de Oviedo. Campus de los Catalanes. Oviedo.}}
 
 \section{Introducción}
 
+En esta práctica se verán las diferencias entre la obtención manual y automatica de la información estructurada para tres textos dados, 
+ademas se trataran temas como por qué hay tantas ontologías y como tratar el problema de alinearlas a la hora de su uso. 
 
 \section{Obtención manual de información estructurada}
 
@@ -93,28 +96,127 @@ Una vez verificado podemos traducir el formato turtle a JSONLD, usando para ello
 
 \subsection{Obtención de RDF's.}
 
-Obtendremos los documentos RDF para cada texto, par ello usaremos las siguientes herramientas: 
-\href{https://www.refinitiv.com/en/products/intelligent-tagging-text-analytics}{Open Calais}, 
-\href{https://www.dbpedia-spotlight.org/demo/}{DBPedia-spotlight} y 
-\href{http://wit.istc.cnr.it/stlab-tools/fred/demo/?}{FRED} 
-estos se pueden ver correspondientemente en los Anexos: \ref{OpenCalaisRDF}, \ref{DBPediaRDF} y \ref{FREDRDF} 
-que posteriormente se han traduciodo a formato turtle (Anexos: \ref{OpenCalaisTurtle}, \ref{DBPediaTurtle} y \ref{FREDTurtle})
-y a JSONLD (Anexos: \ref{OpenCalaisJSON}, \ref{DBPediaJSON} y \ref{FREDJSON}).
+En esta sección obtendremos los documentos RDF para cada texto, par ello usaremos las siguientes herramientas: 
+\href{https://www.refinitiv.com/en/products/intelligent-tagging-text-analytics}{Open Calais} y 
+\href{http://wit.istc.cnr.it/stlab-tools/fred/demo/?}{FRED}. En el caso de la herramienta recomendada en el guión de prácticas
+\href{https://www.dbpedia-spotlight.org/demo/}{DBPedia-spotlight} no se hará uso de ella debido a que no exporta un archivo rdf de modo 
+que la generación de este no sería automático como se indica en el titulo de la sección.
+
+Los archivos resultantes se encuentran en el fichero comprimido adjunto en la tarea llamado \textit{informacionEstructuradaAutomatica.zip}, 
+este fichero contendrá tanto los archivos RDF de cada texto como los  que posteriormente se habrán traduciodo a formato turtle y a JSONLD.
 
 Dada esta información ahora podremos dar respuesta a las siguientes cuestiones:
 
 \textbf{\textit{¿Qué ontologías usa cada servicio para "tipar" las instancias detectadas en el texto?}}
 
+Las ontologías que usa cada servicio para \textit{"tipar"} las instacias son las siguientes:
+
+\paragraph{Open Calais:} En el caso de esta herramienta para todos los textos usa las siguientes ontologías, estas son fáciles de obtener
+de los archivos en formato turttle obtnidos de la traducción de los rdf.
+
+\begin{itemize}
+    \item http://s.opencalais.com/1/pred/
+    \item http://www.w3.org/1999/02/22-rdf-syntax-ns
+    \item http://www.w3.org/2000/01/rdf-schema
+    \item http://www.w3.org/XML/1998/namespace
+    \item http://www.w3.org/2001/XMLSchema
+\end{itemize}
+
+\paragraph{FRED:} En el caso de esta herramienta presenta diferencias en las ontologias usadas en funcion del texto puesto que 
+en unos necesita mas que en otros. El conjunto de todas las ontologías usadas es el siguiente:
+
+\begin{itemize}
+    \item http://www.ontologydesignpatterns.org/ont/dul/DUL.owl
+    \item http://www.essepuntato.it/2008/12/earmark
+    \item http://www.ontologydesignpatterns.org/ont/fred/domain.owl
+    \item http://www.ontologydesignpatterns.org/ont/vn/abox/role/
+    \item http://www.ontologydesignpatterns.org/ont/cnlp/dependencies.owl
+    \item http://ontologydesignpatterns.org/cp/owl/semiotics.owl
+    \item http://www.ontologydesignpatterns.org/ont/fred/pos.owl
+    \item http://www.ontologydesignpatterns.org/ont/boxer/boxer.owl
+    \item http://www.ontologydesignpatterns.org/ont/boxer/boxer.owl
+    \item http://www.ontologydesignpatterns.org/ont/fred/quantifiers.owl
+    \item http://www.ontologydesignpatterns.org/ont/fred/quantifiers.owl
+    \item http://www.w3.org/2002/07/owl
+    \item http://www.w3.org/1999/02/22-rdf-syntax-ns
+    \item http://www.w3.org/2000/01/rdf-schema
+    \item http://schema.org/
+    \item http://www.w3.org/XML/1998/namespace
+    \item http://www.w3.org/2001/XMLSchema
+\end{itemize}
+
 \textbf{\textit{¿Existe algún tipo de dichas ontologías que pudiera considerarse equivalente a otro tipo en schema.org? 
 Señala todos los casos que te hayas encontrado con cada servicio, indicando también (si fuera posible) qué propiedades 
 de un tipo mapearían sobre propiedades del otro.}}
 
-\textbf{\textit{Reflexiona acerca de los motivos que pueden llevar a cada equipo de desarrolladores a producir una ontologíapropia. 
+Existen muchos casos en los que un tipo de entidad de una de las ontologias usadas mapea con otro de Schema.org, algunos ejemplos son los siguientes:
+
+En el caso de Open Calais nos encontramos con: 
+\begin{itemize}
+    \item La entidad "http://s.opencalais.com/1/type/em/e/Person" que en Schema.org sería "https://schema.org/Person", además en 
+    este caso mapearían directamente los siguientes atributos: name.
+    \item La entidad "http://s.opencalais.com/1/type/em/e/City" que en Schema.org sería "https://schema.org/City", además en este caso 
+    mapearían directamente los siguientes atributos: name.
+    \item La entidad "http://s.opencalais.com/1/type/em/e/Organization" que en Schema.org sería "https://schema.org/Organization", además 
+    en este caso mapearían directamente los siguientes atributos: name y additionalType.
+    \item La entidad "http://s.opencalais.com/1/type/tag/Industry" que en Schema.org sería "https://schema.org/industry".
+    \item La entidad "http://s.opencalais.com/1/type/er/Company" que en Schema.org sería "https://schema.org/Corporation", además 
+    en este caso mapearían directamente los siguientes atributos: name.
+    \item La entidad "http://s.opencalais.com/1/type/em/r/Quotation" que en Schema.org sería "https://schema.org/Quotation", además en 
+    este caso mapearían directamente los siguientes atributos: about, spokenByCharacter.
+    \item La entidad "http://s.opencalais.com/1/type/em/e/PublishedMedium" que en Schema.ord sería "https://schema.org/Periodical", además en 
+    este caso mapearían directamente los siguientes atributos: name.
+    \item La entidad "http://s.opencalais.com/1/type/em/e/ProgrammingLanguage" que en Schema.ord sería https://schema.org/ComputerLanguage, además en 
+    este caso mapearían directamente los siguientes atributos: name.   
+\end{itemize}
+
+Por otro lado en el caso de FRED nos encontramos con los siguientes casos:
+\begin{itemize}
+    \item La entidad http://www.w3.org/2002/07/owl/Class que en Schema.ord sería https://schema.org/Class, además en 
+    este caso mapearían directamente los siguientes atributos: subObject.
+    \item La entidad "http://www.ontologydesignpatterns.org/ont/fred/domain.owl/ProgrammingLanguage" que en Schema.ord sería https://schema.org/ComputerLanguage, además en 
+    este caso mapearían directamente los siguientes atributos: name.
+    \item La entidad "http://www.ontologydesignpatterns.org/ont/fred/domain.owl/Report" que en Schema.ord sería https://schema.org/Report.
+\end{itemize}
+Cabe destacar que en el caso de la herramienta FRED ya se usa Schema.org como ontología para la generación de los archivos.
+
+\textbf{\textit{Reflexiona acerca de los motivos que pueden llevar a cada equipo de desarrolladores a producir una ontología propia. 
 Investiga (someramente) sobre el problema de alineación de ontologías.}}
+
+Puede haber diversas razones por las que un equipo de desarrolladores produzcan una ontología propia; la primera es que esta se cree por 
+mero desconocimiento de la existencia previa que satisfaga sus necesidades, otra razon podría ser que quisieran que la ontologia fuera hecha 
+a medida de sus necesidades, de modo que añadirían a cada entidad los atributos que deseasen para su proposito, ademas otra razón sería que 
+si la creasen ellos podrían asegurar el mantenimiento de esta asegurando asi que no se descontinuase, como podria ocurrir con otras como wikiData 
+o Schema.org, por ultimo cabría destacar la posibilidad de que sea un requerimiento del proyecto la creación de dicha ontología porque esta no exista 
+o se necesita que sea cerrada.
+
+En cuanto al problema de alineación entre ontologías esto se produce en el momento que la misma entidad está definidad en mas de una ontología y:
+\begin{itemize}
+    \item La nomenclatura de los atributos es distinta.
+    \item En unas ontologías aparecen unos atributos y en otras no.
+    \item La definicion es ligeramente distinta.
+\end{itemize}
+Esto produce que trabajar con varias de estas ontologías al mismo tiempo sea complejo y tedioso, por ejemplo en el caso de realizar consultas SPARQL, 
+que mediante el uso de consultas federadas podriamos transformar las entidades de una ontología en las mismas de otra esto no se puede hacer directamente 
+por lo anteriormente mencionado. Por ello en muchas ontologias se incluye en todas las entidades el atributo sameAs en el que se recoge una lista de equivalencias 
+con otras ontologías, hay que mencionar que en el caso de wikiDatra esto se realiza de diferente manera de modo que las entidades en vez de tener un 
+atributo sameAs con una lista de equivalencias poseen un atributo de equivalencia por cada ontología que tenga registrada para ello.
 
 \textbf{\textit{Utiliza el servicio sameAs.org para localizar equivalencias para todos los tipos fundamentales de Open Calais, DBPedia 
 Spotlight y FRED, así como los homólogos de Schema.org que detectaste. ¿Existe algún sevicio para el que no se disponga de información 
 en sameAs.org?}}
+
+Al realizar este apartado no en conseguido que la web sameAs.org funcione, he probado con los tipos básicos de cada ontología asegurandome que tuviese un
+atributo sameAs pero aun asi no funciona como se observa en la siguientes imagenes.
+
+\begin{figure}[!htb]
+    \includegraphics[width=\textwidth]{resources/SameAsWeb.png}
+    \caption{Resultado la busqueda de http://dbpedia.org/page/Thing en SameAs.org.}
+    \label{Fig.2}
+    \includegraphics[width=\textwidth]{resources/DBPediaSameAs.png}
+    \caption{Resultado acceder de http://dbpedia.org/page/Thing y buscar el atributo sameAs.}
+    \label{Fig.3}
+\end{figure}
 
 \section{Anexos}
 
@@ -128,44 +230,5 @@ en sameAs.org?}}
 
 \paragraph{Texto 3:}
 “The New York Times reported that John McCarthy died. He invented the programming language LISP.”
-
-\subsection{Archivos RDF producidos por herramientas}
-
-\subsubsection{Open Calais}\label{OpenCalaisRDF}
-%\lstinputlisting[language=XML, firstline=1, lastline=25, breaklines, caption={Archivo RDF con la información estructurada del texto 1.}]{resources/OpenCalais/OpenCalaisText1.rdf}
-%\lstinputlisting[language=XML, lastline=50, breaklines, caption={Archivo RDF con la información estructurada del texto 2.}]{resources/OpenCalais/OpenCalaisText2.rdf}
-%\lstinputlisting[language=XML, lastline=50, breaklines, caption={Archivo RDF con la información estructurada del texto 3.}]{resources/OpenCalais/OpenCalaisText3.rdf}
-
-\subsubsection{DBPedia-Spotlight}\label{DBPediaRDF}
-\subsubsection{FRED}\label{FREDRDF}
-%\lstinputlisting[language=XML, firstline=1, lastline=25, breaklines, caption={Archivo RDF con la información estructurada del texto 1.}]{resources/Fred/FredText1.rdf}
-%\lstinputlisting[language=XML, lastline=50, breaklines, caption={Archivo RDF con la información estructurada del texto 2.}]{resources/Fred/FredText2.rdf}
-%\lstinputlisting[language=XML, lastline=50, breaklines, caption={Archivo RDF con la información estructurada del texto 3.}]{resources/Fred/FredText3.rdf}
-
-\subsection{Archivos Turtle producidos por herramientas}
-
-\subsubsection{Open Calais}\label{OpenCalaisTurtle}
-%\lstinputlisting[language=XML, firstline=1, lastline=25, breaklines, caption={Archivo RDF con la información estructurada del texto 1.}]{resources/OpenCalais/OpenCalaisText1.ttl}
-%\lstinputlisting[language=XML, lastline=50, breaklines, caption={Archivo RDF con la información estructurada del texto 2.}]{resources/OpenCalais/OpenCalaisText2.ttl}
-%\lstinputlisting[language=XML, lastline=50, breaklines, caption={Archivo RDF con la información estructurada del texto 3.}]{resources/OpenCalais/OpenCalaisText3.ttl}
-
-\subsubsection{DBPedia-Spotlight}\label{DBPediaTurtle}
-\subsubsection{FRED}\label{FREDTurtle}
-%\lstinputlisting[language=XML, firstline=1, lastline=25, breaklines, caption={Archivo RDF con la información estructurada del texto 1.}]{resources/Fred/FredText1.ttl}
-%\lstinputlisting[language=XML, lastline=50, breaklines, caption={Archivo RDF con la información estructurada del texto 2.}]{resources/Fred/FredText2.ttl}
-%\lstinputlisting[language=XML, lastline=50, breaklines, caption={Archivo RDF con la información estructurada del texto 3.}]{resources/Fred/FredText3.ttl}
-
-\subsection{Archivos JSONLD producidos por herramientas}
-
-\subsubsection{Open Calais}\label{OpenCalaisJSON}
-%\lstinputlisting[language=XML, firstline=1, lastline=25, breaklines, caption={Archivo RDF con la información estructurada del texto 1.}]{resources/OpenCalais/OpenCalaisText1.json}
-%\lstinputlisting[language=XML, lastline=50, breaklines, caption={Archivo RDF con la información estructurada del texto 2.}]{resources/OpenCalais/OpenCalaisText2.json}
-%\lstinputlisting[language=XML, lastline=50, breaklines, caption={Archivo RDF con la información estructurada del texto 3.}]{resources/OpenCalais/OpenCalaisText3.json}
-
-\subsubsection{DBPedia-Spotlight}\label{DBPediaJSON}
-\subsubsection{FRED}\label{FREDJSON}
-%\lstinputlisting[language=XML, firstline=1, lastline=25, breaklines, caption={Archivo RDF con la información estructurada del texto 1.}]{resources/Fred/FredText1.json}
-%\lstinputlisting[language=XML, lastline=50, breaklines, caption={Archivo RDF con la información estructurada del texto 2.}]{resources/Fred/FredText2.json}
-%\lstinputlisting[language=XML, lastline=50, breaklines, caption={Archivo RDF con la información estructurada del texto 3.}]{resources/Fred/FredText3.json}
 
 \end{document}
