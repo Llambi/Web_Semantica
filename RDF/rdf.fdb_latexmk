@@ -1,7 +1,7 @@
 # Fdb version 3
-["pdflatex"] 1574256302 "/Users/llambi/Documents/Proyectos/Python/Web_Semantica/RDF/rdf.tex" "/Users/llambi/Documents/Proyectos/Python/Web_Semantica/RDF/rdf.pdf" "rdf" 1574256304
-  "/Users/llambi/Documents/Proyectos/Python/Web_Semantica/RDF/rdf.aux" 1574256304 4198 be0bac2e3558821032ece6f994222116 ""
-  "/Users/llambi/Documents/Proyectos/Python/Web_Semantica/RDF/rdf.tex" 1574256300 13923 29669369ea32c6e893f899ef0fa7b10b ""
+["pdflatex"] 1574338438 "/Users/llambi/Documents/Proyectos/Python/Web_Semantica/RDF/rdf.tex" "/Users/llambi/Documents/Proyectos/Python/Web_Semantica/RDF/rdf.pdf" "rdf" 1574338440
+  "/Users/llambi/Documents/Proyectos/Python/Web_Semantica/RDF/rdf.aux" 1574338440 4349 6faebb1b64cc3c9151f55191485875db ""
+  "/Users/llambi/Documents/Proyectos/Python/Web_Semantica/RDF/rdf.tex" 1574338435 16728 7c30880071eabf86f9f58c864c12b286 ""
   "/Users/llambi/Library/texmf/tex/latex/commonstuff/llncs.cls" 1572881962 43467 a21466011e5ed5d4c3f1d5a9af897395 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm" 1136768653 1328 c834bbb027764024c09d3d2bf908b5f0 ""
@@ -68,16 +68,16 @@
   "/usr/local/texlive/2019/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1557342064 3277517 23507ed665b4dd9046f0f2a94bbef2be ""
   "/usr/local/texlive/2019/texmf-var/web2c/pdftex/pdflatex.fmt" 1570053358 4259636 df1705e79f711d36781bcf6d6ed456aa ""
   "/usr/local/texlive/2019/texmf.cnf" 1557341546 577 d150fef99ac436ad1156e86b0892f6ef ""
-  "rdf.aux" 1574256304 4198 be0bac2e3558821032ece6f994222116 "pdflatex"
-  "rdf.tex" 1574256300 13923 29669369ea32c6e893f899ef0fa7b10b ""
+  "rdf.aux" 1574338440 4349 6faebb1b64cc3c9151f55191485875db "pdflatex"
+  "rdf.tex" 1574338435 16728 7c30880071eabf86f9f58c864c12b286 ""
   "resources/DBPediaSameAs.png" 1574255398 78114 57eb920643df79c3fcaccad55590f67f ""
   "resources/RDFValidation.png" 1573586749 439316 248d7dfae475ea4282f04ca46b186768 ""
   "resources/SameAsWeb.png" 1574255398 155286 3937b385e13f6655b734cf21ee9789ee ""
   "resources/jsonld.json" 1573587151 3582 38b02531a662f52f78d7d8a920f620d5 ""
   "resources/texts.ttl" 1573585981 2006 e4a09f8aa69aa9fab6419e74ee42aefb ""
   (generated)
-  "rdf.log"
-  "/Users/llambi/Documents/Proyectos/Python/Web_Semantica/RDF/rdf.pdf"
   "/Users/llambi/Documents/Proyectos/Python/Web_Semantica/RDF/rdf.log"
+  "/Users/llambi/Documents/Proyectos/Python/Web_Semantica/RDF/rdf.pdf"
   "rdf.pdf"
+  "rdf.log"
   "rdf.aux"

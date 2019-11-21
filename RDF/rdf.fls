@@ -122,6 +122,8 @@ INPUT /Users/llambi/Documents/Proyectos/Python/Web_Semantica/RDF/resources/jsonl
 INPUT /usr/local/texlive/2019/texmf-dist/tex/latex/base/omscmr.fd
 INPUT /usr/local/texlive/2019/texmf-dist/tex/latex/base/omscmr.fd
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmbxti10.tfm
+INPUT /usr/local/texlive/2019/texmf-dist/tex/latex/base/latin1.def
+INPUT /usr/local/texlive/2019/texmf-dist/tex/latex/base/latin1.def
 INPUT /Users/llambi/Documents/Proyectos/Python/Web_Semantica/RDF/resources/SameAsWeb.png
 INPUT /Users/llambi/Documents/Proyectos/Python/Web_Semantica/RDF/resources/SameAsWeb.png
 INPUT /Users/llambi/Documents/Proyectos/Python/Web_Semantica/RDF/resources/SameAsWeb.png

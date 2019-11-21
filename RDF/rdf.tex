@@ -206,8 +206,82 @@ atributo sameAs con una lista de equivalencias poseen un atributo de equivalenci
 Spotlight y FRED, así como los homólogos de Schema.org que detectaste. ¿Existe algún sevicio para el que no se disponga de información 
 en sameAs.org?}}
 
-Al realizar este apartado no en conseguido que la web sameAs.org funcione, he probado con los tipos básicos de cada ontología asegurandome que tuviese un
-atributo sameAs pero aun asi no funciona como se observa en la siguientes imagenes.
+El unico caso en el que he conseguido alguna equivalencia ha sido en el caso de la ontología de Schema.org, algunas de estas son las siguientes:
+
+\lstset{
+    frame=tb, % draw a frame at the top and bottom of the code block
+    tabsize=2, % tab space width
+    showstringspaces=false, % don't mark spaces in strings
+    numbers=left, % display line numbers on the left
+    commentstyle=\color{green}, % comment color
+    keywordstyle=\color{red}, % keyword color
+    stringstyle=\color{black}, % string color    
+    inputencoding=utf8/latin1
+}
+\begin{lstlisting}[language=HTML, breaklines, caption={Equivalencias de sameAs.org para Schema.org.}, captionpos=b]
+    [
+  {
+    "uri": "http://schema.org/Thing",
+    "numDuplicates": "2",
+    "duplicates": [
+      "http://schema.org/Thing",
+      "http://www.w3.org/2002/07/owl#Thing"
+    ]
+  },
+  {
+    "uri": "http://purl.org/vocabularies/princeton/wn30/synset-person-noun-1",
+    "numDuplicates": "12",
+    "duplicates": [
+      "http://dbpedia.org/ontology/Person",
+      "http://dbpedia.org/ontology/PokerPlayer",
+      "http://proton.semanticweb.org/protonu#Profession",
+      "http://purl.org/vocabularies/princeton/wn30/synset-person-noun-1",
+      "http://schema.org/Person",
+      "http://sw.opencyc.org/2009/04/07/concept/en/_http___dbpedia_org_ontology_PokerPlayer_",
+      "http://umbel.org/umbel#PersonTypes",
+      "http://umbel.org/umbel/rc/PersonWithOccupation",
+      "http://www.w3.org/2000/10/swap/pim/contact#Person",
+      "http://xmlns.com/foaf/0.1/Person"
+    ]
+  },
+  {
+    "uri": "http://schema.org/Organization",
+    "numDuplicates": "8",
+    "duplicates": [
+      "http://dbpedia.org/ontology/Organisation",
+      "http://proton.semanticweb.org/protont#Organization",
+      "http://proton.semanticweb.org/protonu#SportOrganization",
+      "http://purl.org/vocabularies/princeton/wn30/synset-organization-noun-1",
+      "http://schema.org/Organization",
+      "http://umbel.org/umbel/rc/Organization",
+      "http://umbel.org/umbel/rc/Organizations",
+      "http://xmlns.com/foaf/0.1/Organization"
+    ]
+  },
+  {
+    "uri": "http://schema.org/City",
+    "numDuplicates": "507",
+    "duplicates": [
+      "http://dbpedia.org/ontology/City",
+      "http://dbpedia.org/resource/City",
+      "http://dbpedia.org/resource/Town",
+      "http://dbpedia.org/resource/Citie",
+      "http://dbpedia.org/resource/Shahr",
+      "http://dbpedia.org/resource/Cities",
+      "http://dbpedia.org/resource/Cittie",
+      "http://dbpedia.org/resource/CittA ",
+      "http://dbpedia.org/resource/Ciudad",
+      "http://dbpedia.org/resource/Citties",
+      "http://dbpedia.org/resource/Pilseta",
+      "http://dbpedia.org/resource/City_work",
+      "http://dbpedia.org/resource/Porkberry"
+    ]
+  }
+]
+\end{lstlisting}
+
+Al realizar este apartado no he conseguido para el resto de ontologìas que la web sameAs.org funcione, he probado con los tipos 
+básicos de cada ontología asegurandome que tuviese un atributo sameAs pero aun asi no funciona como se observa en la siguientes imagenes.
 
 \begin{figure}[!htb]
     \includegraphics[width=\textwidth]{resources/SameAsWeb.png}
