@@ -108,7 +108,14 @@ venv.bak/
 # mypy
 .mypy_cache/
 /Crawler/resources/
-InfoSemantica/InformacionSemantica.aux
-InfoSemantica/InformacionSemantica.fdb_latexmk
-InfoSemantica/InformacionSemantica.fls
-InfoSemantica/InformacionSemantica.synctex.gz
+
+# Latex
+InfoSemantica/*.aux
+InfoSemantica/*.fdb_latexmk
+InfoSemantica/*.fls
+InfoSemantica/*.synctex.gz
+
+RDF/*.aux
+RDF/*.fdb_latexmk
+RDF/*.fls
+RDF/*.synctex.gz
