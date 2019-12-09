@@ -119,3 +119,7 @@ RDF/*.aux
 RDF/*.fdb_latexmk
 RDF/*.fls
 RDF/*.synctex.gz
+DataMining/datamining.synctex.gz
+DataMining/datamining.aux
+DataMining/datamining.fdb_latexmk
+DataMining/datamining.fls
