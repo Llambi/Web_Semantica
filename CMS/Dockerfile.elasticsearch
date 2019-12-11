@@ -1,0 +1,10 @@
+# Sources:
+# - https://github.com/extremeshok/docker-elasticsearch-elasticpress/blob/master/Dockerfile
+# - https://github.com/elastic/dockerfiles/blob/6.6/elasticsearch/Dockerfile
+
+FROM docker.elastic.co/elasticsearch/elasticsearch:6.4.3
+
+RUN elasticsearch-plugin install --batch -s ingest-attachment
+
+ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
+CMD ["eswrapper"]
